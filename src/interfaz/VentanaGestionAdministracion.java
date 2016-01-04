@@ -53,11 +53,11 @@ public class VentanaGestionPremios extends javax.swing.JDialog {
                 {null, null, null, null}
             },
             new String [] {
-                "Premio", "Cuantia", "Número de Premios", ""
+                "Nombre", "CIF", "Dirección", ""
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -70,16 +70,16 @@ public class VentanaGestionPremios extends javax.swing.JDialog {
             jTable1.getColumnModel().getColumn(3).setPreferredWidth(5);
         }
 
-        jTextField1.setText("Premio");
+        jTextField1.setText("Nombre");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
 
-        jTextField2.setText("Cuantia");
+        jTextField2.setText("CIF");
 
-        jTextField3.setText("Numero Premios");
+        jTextField3.setText("Dirección");
 
         jButton1.setText("Añadir");
 
