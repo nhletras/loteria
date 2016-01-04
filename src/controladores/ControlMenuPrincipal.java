@@ -9,5 +9,7 @@ public class ControlMenuPrincipal {
     public ArrayList<Billete> lb = new ArrayList<Billete>();
     public ArrayList<Premio> lp = new ArrayList<Premio>();
     
+    //Lectura de fichero base.txt(cargando premios y administraciones)
+    
 
 }

@@ -1,0 +1,18 @@
+BILLETES
+00000;195;false
+00001;195;false
+00002;195;false
+00003;195;false
+00004;195;false
+00005;195;false
+00006;195;false
+00007;195;false
+ADMINISTRACION
+Administracion1;11111111A;Direccion Adm 1;
+PREMIOS
+El Gordo (Primer Premio);4000000;1
+Segundo Premio;1250000;1
+Tercer Premio;500000;1
+Cuarto Premio;200000;2
+Quinto Premio;60000;8
+La Pedrea;1000;1794
