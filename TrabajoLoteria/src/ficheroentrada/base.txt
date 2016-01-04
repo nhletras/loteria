@@ -7,3 +7,4 @@ Tercer Premio;500000;1
 Cuarto Premio;200000;2
 Quinto Premio;60000;8
 La Pedrea;1000;1794
+EOF
