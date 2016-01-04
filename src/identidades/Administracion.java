@@ -1,11 +1,10 @@
-
 package identidades;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Administracion {
-    
+
     private String nombre;
     private String cif;
     private String direccion;
@@ -25,7 +24,7 @@ public class Administracion {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
     public String getCif() {
         return cif;
     }
@@ -40,6 +39,11 @@ public class Administracion {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    @Override
+    public String toString() {
+        return this.nombre + "(" + this.cif + ")" + this.direccion;
     }
 
 }

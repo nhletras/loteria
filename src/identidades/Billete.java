@@ -37,7 +37,6 @@ public class Billete {
     }
     
     public String toString(){
-        String cad = "";
-        return cad + this.numero;
+        return ""+this.numero;
     }
 }
