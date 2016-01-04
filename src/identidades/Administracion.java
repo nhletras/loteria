@@ -18,6 +18,14 @@ public class Administracion {
         this.lbAd = new ArrayList<Administracion>();
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
     public String getCif() {
         return cif;
     }
