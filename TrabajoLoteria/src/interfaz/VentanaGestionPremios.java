@@ -49,11 +49,10 @@ public class VentanaGestionPremios extends javax.swing.JDialog {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
-                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Premio", "Cuantia", "Número de Premios", ""
+                "Nombre", "Cuantia", "Número de premios", ""
             }
         ) {
             Class[] types = new Class [] {
@@ -66,7 +65,6 @@ public class VentanaGestionPremios extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
             jTable1.getColumnModel().getColumn(3).setPreferredWidth(5);
         }
 

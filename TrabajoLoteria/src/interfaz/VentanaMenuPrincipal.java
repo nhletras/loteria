@@ -5,16 +5,17 @@
  */
 package interfaz;
 
+import controladores.*;
 /**
  *
  * @author ASANCOR
  */
-public class MenuPrincipal extends javax.swing.JFrame {
-
+public class VentanaMenuPrincipal extends javax.swing.JFrame {
+    
     /**
      * Creates new form VentanaPrincipal
      */
-    public MenuPrincipal() {
+    public VentanaMenuPrincipal() {
         initComponents();
     }
 
@@ -53,11 +54,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnPremios.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
         btnPremios.setForeground(new java.awt.Color(255, 255, 255));
         btnPremios.setText("Gestión premios");
+        btnPremios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPremiosActionPerformed(evt);
+            }
+        });
 
         btnSorteos.setBackground(new java.awt.Color(0, 0, 0));
         btnSorteos.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
         btnSorteos.setForeground(new java.awt.Color(255, 255, 255));
         btnSorteos.setText("Sorteos");
+        btnSorteos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSorteosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
@@ -102,7 +113,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnAdministracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministracionesActionPerformed
         // TODO add your handling code here:
+        elegirOpcion(0);
     }//GEN-LAST:event_btnAdministracionesActionPerformed
+
+    private void btnPremiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPremiosActionPerformed
+        // TODO add your handling code here:
+        elegirOpcion(1);
+    }//GEN-LAST:event_btnPremiosActionPerformed
+
+    private void btnSorteosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSorteosActionPerformed
+        // TODO add your handling code here:
+        elegirOpcion(2);
+    }//GEN-LAST:event_btnSorteosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,14 +143,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -137,7 +171,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal().setVisible(true);
+                new VentanaMenuPrincipal().setVisible(true);
             }
         });
     }
@@ -148,4 +182,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnSorteos;
     private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
+
+    private void elegirOpcion(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
