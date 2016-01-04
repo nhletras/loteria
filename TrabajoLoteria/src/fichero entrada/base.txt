@@ -1,0 +1,9 @@
+ADMINISTRACION
+Administracion1;11111111A;Direccion Adm 1
+PREMIOS
+El Gordo (Primer Premio);4000000;1
+Segundo Premio;1250000;1
+Tercer Premio;500000;1
+Cuarto Premio;200000;2
+Quinto Premio;60000;8
+La Pedrea;1000;1794
