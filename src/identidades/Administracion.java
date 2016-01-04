@@ -1,15 +1,37 @@
 
 package identidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Administracion {
     
-    String nombre;
-    String cif;
-    String direccion;
+    private String nombre;
+    private String cif;
+    private String direccion;
     List<Billete> lbAd;
-    
-/* Comentario en Administracion */
-    
+
+    public Administracion(String nombre, String cif, String direccion) {
+        this.nombre = nombre;
+        this.cif = cif;
+        this.direccion = direccion;
+        this.lbAd = new ArrayList<Administracion>();
+    }
+
+    public String getCif() {
+        return cif;
+    }
+
+    public void setCif(String cif) {
+        this.cif = cif;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
 }

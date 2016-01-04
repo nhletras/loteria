@@ -1,8 +1,13 @@
 
 package controladores;
 
+import java.util.ArrayList;
+
 public class ControlMenuPrincipal {
     
-    //Comentario para gonzalo
+    public ArrayList<Adminstracion> la = new ArrayList<Administracion>();
+    public ArrayList<Billete> lb = new ArrayList<Billete>();
+    public ArrayList<Premio> lp = new ArrayList<Premio>();
     
+
 }
