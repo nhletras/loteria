@@ -2,5 +2,7 @@
 package identidades;
 
 public class Billete {
-    /* asd */ 
+    private int numero;
+    private int numSeries;
+    private boolean asignado;
 }
