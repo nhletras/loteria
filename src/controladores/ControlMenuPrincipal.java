@@ -11,5 +11,6 @@ public class ControlMenuPrincipal {
     
     //Lectura de fichero base.txt(cargando premios y administraciones)
     
-
+    //Aqui se rellena la lista de billetes desde el billete 00000 al 99999 con 195 series cada billete
+    
 }
