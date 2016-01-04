@@ -38,6 +38,7 @@ public class Premio {
     }
     
     public String toString() {
-        return nombre + " " + cuantia "€";
+        String cad = "";
+        return cad + this.nombre + " " + this.cuantia + "€";
     }  
 }
