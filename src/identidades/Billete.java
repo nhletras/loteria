@@ -6,6 +6,12 @@ public class Billete {
     private int numSeries;
     private boolean asignado;
 
+    public Billete(int numero, int numSeries, boolean asignado) {
+        this.numero = numero;
+        this.numSeries = numSeries;
+        this.asignado = asignado;
+    }
+    
     public int getNumSeries() {
         return numSeries;
     }
@@ -29,6 +35,4 @@ public class Billete {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-    
-    
 }

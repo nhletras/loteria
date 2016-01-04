@@ -1,6 +1,9 @@
 
 package identidades;
 
-public class Premio {
+public class Premio { 
+    
+    private String nombre; 
+    private int cuantia
     
 }
