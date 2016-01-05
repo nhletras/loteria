@@ -1,6 +1,11 @@
 
 package controladores;
 
-public class ControlGestionAdministraciones {
-    
+import identidades.Administracion;
+import java.util.ArrayList;
+
+public class ControlGestionAdministraciones{
+    public ControlGestionAdministraciones(ArrayList<Administracion> la){
+        
+    }
 }

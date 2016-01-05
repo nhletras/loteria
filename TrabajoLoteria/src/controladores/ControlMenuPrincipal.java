@@ -16,13 +16,13 @@ public class ControlMenuPrincipal {
     public void realizarOpcion(int opc) {
         switch (opc) {
             case 1:
-                ControlGestionAdministraciones cga = new ControlGestionAdministraciones();
+                ControlGestionAdministraciones cga = new ControlGestionAdministraciones(la);
                 break;
             case 2:
-                ControlGestionPremios cgp = new ControlGestionPremios();
+                ControlGestionPremios cgp = new ControlGestionPremios(lp);
                 break;
             case 3:
-                ControlSorteo cs = new ControlSorteo();
+                ControlSorteo cs = new ControlSorteo(la,lb,lp);
                 break;
         }
     }
