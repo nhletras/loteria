@@ -85,6 +85,7 @@ public class VentanaGestionPremios extends javax.swing.JDialog {
 
         btnGuardarPremios.setText("Guardar Cambios");
 
+        txtMuestraPremios.setEditable(false);
         txtMuestraPremios.setColumns(20);
         txtMuestraPremios.setRows(5);
         txtMuestraPremios.setText("Premio (Cuantia €) Número de Premios.");

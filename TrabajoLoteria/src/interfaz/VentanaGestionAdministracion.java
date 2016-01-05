@@ -87,6 +87,7 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
 
         btnGuardarAdministraciones.setText("Guardar Cambios");
 
+        txtMuestraAdministraciones.setEditable(false);
         txtMuestraAdministraciones.setColumns(20);
         txtMuestraAdministraciones.setRows(5);
         txtMuestraAdministraciones.setText("Premio (Cuantia €) Número de Premios.");

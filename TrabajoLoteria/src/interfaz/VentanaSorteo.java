@@ -28,6 +28,7 @@ public class VentanaSorteo extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCheckBox1 = new javax.swing.JCheckBox();
         btnAsignarBilletes = new javax.swing.JButton();
         comboAdministracion = new javax.swing.JComboBox<>();
         comboBilletes = new javax.swing.JComboBox<>();
@@ -35,6 +36,12 @@ public class VentanaSorteo extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtSorteo = new javax.swing.JTextArea();
         btnRealizarSorteo = new javax.swing.JButton();
+        lblNumSeries = new javax.swing.JLabel();
+        lblSeleccioAdministracion = new javax.swing.JLabel();
+        lblSeleccionBillete = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+
+        jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -46,21 +53,22 @@ public class VentanaSorteo extends javax.swing.JDialog {
             }
         });
 
-        comboAdministracion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Administracion...", "Item 2", "Item 3", "Item 4" }));
+        comboAdministracion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboAdministracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboAdministracionActionPerformed(evt);
             }
         });
 
-        comboBilletes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione billete...", "Item 2", "Item 3", "Item 4" }));
+        comboBilletes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboBilletes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBilletesActionPerformed(evt);
             }
         });
 
-        txtNumeroSeries.setText("Nº Series");
+        txtNumeroSeries.setToolTipText("Introduzca aquí el numero de series para la administración");
+        txtNumeroSeries.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtNumeroSeries.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumeroSeriesActionPerformed(evt);
@@ -74,40 +82,68 @@ public class VentanaSorteo extends javax.swing.JDialog {
 
         btnRealizarSorteo.setText("Realizar Sorteo");
 
+        lblNumSeries.setText("Número de Series : ");
+
+        lblSeleccioAdministracion.setText("Seleccione Administración :");
+
+        lblSeleccionBillete.setText("Seleccione Billete :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnRealizarSorteo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1)
-                    .addComponent(btnAsignarBilletes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(comboAdministracion, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(comboBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNumeroSeries, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAsignarBilletes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lblSeleccionBillete)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(comboBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblSeleccioAdministracion)
+                                    .addComponent(lblNumSeries))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                                        .addComponent(comboAdministracion, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(txtNumeroSeries))))
+                            .addComponent(btnRealizarSorteo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
+                        .addGap(9, 9, 9))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jSeparator1)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtNumeroSeries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(comboBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(comboAdministracion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAsignarBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboAdministracion)
+                    .addComponent(lblSeleccioAdministracion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSeleccionBillete))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNumSeries)
+                    .addComponent(txtNumeroSeries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAsignarBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRealizarSorteo, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                .addGap(6, 6, 6))
+                .addComponent(btnRealizarSorteo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -177,7 +213,12 @@ public class VentanaSorteo extends javax.swing.JDialog {
     private javax.swing.JButton btnRealizarSorteo;
     private javax.swing.JComboBox<String> comboAdministracion;
     private javax.swing.JComboBox<String> comboBilletes;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblNumSeries;
+    private javax.swing.JLabel lblSeleccioAdministracion;
+    private javax.swing.JLabel lblSeleccionBillete;
     private javax.swing.JTextField txtNumeroSeries;
     private javax.swing.JTextArea txtSorteo;
     // End of variables declaration//GEN-END:variables
