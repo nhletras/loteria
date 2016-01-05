@@ -14,7 +14,7 @@ public class Administracion {
         this.nombre = nombre;
         this.cif = cif;
         this.direccion = direccion;
-        this.lbAd = new ArrayList<Administracion>();
+        this.lbAd = new ArrayList<Billete>();
     }
 
     public String getNombre() {

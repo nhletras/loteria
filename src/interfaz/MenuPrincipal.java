@@ -1,21 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package interfaz;
 
-/**
- *
- * @author ASANCOR
- */
+import controladores.ControlMenuPrincipal;
+
 public class MenuPrincipal extends javax.swing.JFrame {
 
+    public VentanaGestionAdministracion vga;
+    public VentanaGestionPremios vgp;
+    public VentanaSorteos vs;
+    public ControlMenuPrincipal cmp;
     /**
      * Creates new form VentanaPrincipal
      */
-    public MenuPrincipal() {
+    public MenuPrincipal(ControlMenuPrincipal cmp) {
         initComponents();
+        vga = new VentanaGestionAdministracion(this, true);
+        vgp = new VentanaGestionPremios(this, true);
+        vs = new VentanaSorteos(this, true);
+        this.cmp = cmp;
+        
     }
 
     /**
@@ -53,11 +56,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnPremios.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
         btnPremios.setForeground(new java.awt.Color(255, 255, 255));
         btnPremios.setText("Gestión premios");
+        btnPremios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPremiosActionPerformed(evt);
+            }
+        });
 
         btnSorteos.setBackground(new java.awt.Color(0, 0, 0));
         btnSorteos.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
         btnSorteos.setForeground(new java.awt.Color(255, 255, 255));
         btnSorteos.setText("Sorteos");
+        btnSorteos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSorteosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
@@ -101,8 +114,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdministracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministracionesActionPerformed
-        // TODO add your handling code here:
+        vga.setVisible(true);
     }//GEN-LAST:event_btnAdministracionesActionPerformed
+
+    private void btnPremiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPremiosActionPerformed
+        vgp.setVisible(true);
+    }//GEN-LAST:event_btnPremiosActionPerformed
+
+    private void btnSorteosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSorteosActionPerformed
+        vs.setVisible(true);
+    }//GEN-LAST:event_btnSorteosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,7 +158,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal().setVisible(true);
+                new MenuPrincipal(new ControlMenuPrincipal()).setVisible(true);
             }
         });
     }

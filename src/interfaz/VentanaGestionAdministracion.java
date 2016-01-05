@@ -9,12 +9,12 @@ package interfaz;
  *
  * @author ASANCOR
  */
-public class VentanaGestionPremios extends javax.swing.JDialog {
+public class VentanaGestionAdministracion extends javax.swing.JDialog {
 
     /**
      * Creates new form VentanaGestionPremios
      */
-    public VentanaGestionPremios(java.awt.Frame parent, boolean modal) {
+    public VentanaGestionAdministracion(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
