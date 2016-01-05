@@ -5,15 +5,14 @@
  */
 package interfaz;
 
-import controladores.*;
 /**
  *
- * @author ASANCOR
+ * @author Matu
  */
 public class VentanaMenuPrincipal extends javax.swing.JFrame {
-    
+
     /**
-     * Creates new form VentanaPrincipal
+     * Creates new form VentanaMenuPrincipal
      */
     public VentanaMenuPrincipal() {
         initComponents();
@@ -28,103 +27,55 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel = new javax.swing.JPanel();
-        btnAdministraciones = new javax.swing.JButton();
-        btnPremios = new javax.swing.JButton();
-        btnSorteos = new javax.swing.JButton();
+        btnGestionAdministracion = new javax.swing.JButton();
+        btnGestionPremios = new javax.swing.JButton();
+        btnSorteo = new javax.swing.JButton();
+        lblTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Lotería IS");
-        setLocation(new java.awt.Point(0, 0));
-        setResizable(false);
 
-        panel.setName("panel"); // NOI18N
+        btnGestionAdministracion.setText("Gestión Administraciones");
+        btnGestionAdministracion.setPreferredSize(new java.awt.Dimension(100, 60));
 
-        btnAdministraciones.setBackground(new java.awt.Color(0, 0, 0));
-        btnAdministraciones.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
-        btnAdministraciones.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdministraciones.setText("Gestión administraciones");
-        btnAdministraciones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAdministracionesActionPerformed(evt);
-            }
-        });
+        btnGestionPremios.setText("Gestión Premios");
+        btnGestionPremios.setPreferredSize(new java.awt.Dimension(73, 60));
 
-        btnPremios.setBackground(new java.awt.Color(0, 0, 0));
-        btnPremios.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
-        btnPremios.setForeground(new java.awt.Color(255, 255, 255));
-        btnPremios.setText("Gestión premios");
-        btnPremios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPremiosActionPerformed(evt);
-            }
-        });
+        btnSorteo.setText("Sorteo");
+        btnSorteo.setPreferredSize(new java.awt.Dimension(73, 60));
 
-        btnSorteos.setBackground(new java.awt.Color(0, 0, 0));
-        btnSorteos.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
-        btnSorteos.setForeground(new java.awt.Color(255, 255, 255));
-        btnSorteos.setText("Sorteos");
-        btnSorteos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSorteosActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
-        panel.setLayout(panelLayout);
-        panelLayout.setHorizontalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAdministraciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPremios, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                    .addComponent(btnSorteos, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        panelLayout.setVerticalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnAdministraciones, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnPremios, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSorteos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
+        lblTitulo.setText("Loteria y apuestas del estado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnGestionAdministracion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnGestionPremios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSorteo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 238, Short.MAX_VALUE)
+                        .addComponent(lblTitulo)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnGestionAdministracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnGestionPremios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSorteo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblTitulo)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAdministracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministracionesActionPerformed
-        // TODO add your handling code here:
-        elegirOpcion(0);
-    }//GEN-LAST:event_btnAdministracionesActionPerformed
-
-    private void btnPremiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPremiosActionPerformed
-        // TODO add your handling code here:
-        elegirOpcion(1);
-    }//GEN-LAST:event_btnPremiosActionPerformed
-
-    private void btnSorteosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSorteosActionPerformed
-        // TODO add your handling code here:
-        elegirOpcion(2);
-    }//GEN-LAST:event_btnSorteosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,21 +103,6 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(VentanaMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -177,13 +113,9 @@ public class VentanaMenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdministraciones;
-    private javax.swing.JButton btnPremios;
-    private javax.swing.JButton btnSorteos;
-    private javax.swing.JPanel panel;
+    private javax.swing.JButton btnGestionAdministracion;
+    private javax.swing.JButton btnGestionPremios;
+    private javax.swing.JButton btnSorteo;
+    private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
-
-    private void elegirOpcion(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
