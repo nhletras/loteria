@@ -13,6 +13,19 @@ public class ControlMenuPrincipal {
     public ArrayList<Billete> lb = new ArrayList<Billete>();
     public ArrayList<Premio> lp = new ArrayList<Premio>();
 
+    public void realizarOpcion(int opc) {
+        switch (opc) {
+            case 1:
+                ControlGestionAdministraciones cga = new ControlGestionAdministraciones();
+                break;
+            case 2:
+                ControlGestionPremios cgp = new ControlGestionPremios();
+                break;
+            case 3:
+                ControlSorteo cs = new ControlSorteo();
+                break;
+        }
+    }
     //Método para cargar los datos del fichero base.txt en las listas anteriores
     public void cargarDatosFichero(String fileName) {
         String line;
