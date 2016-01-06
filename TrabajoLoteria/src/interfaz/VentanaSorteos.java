@@ -5,15 +5,20 @@
  */
 package interfaz;
 
+import controladores.ControlSorteo;
+
 /**
  *
  * @author ASANCOR
  */
 public class VentanaSorteos extends javax.swing.JDialog {
 
+    public ControlSorteo cs;
+
     /**
      * Creates new form VentanaSorteos
      */
+    
     public VentanaSorteos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();

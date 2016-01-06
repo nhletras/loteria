@@ -115,14 +115,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnAdministracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministracionesActionPerformed
         vga.setVisible(true);
+        cmp.elegirOpcion(1);
     }//GEN-LAST:event_btnAdministracionesActionPerformed
 
     private void btnPremiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPremiosActionPerformed
         vgp.setVisible(true);
+        cmp.elegirOpcion(2);
     }//GEN-LAST:event_btnPremiosActionPerformed
 
     private void btnSorteosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSorteosActionPerformed
         vs.setVisible(true);
+        cmp.elegirOpcion(3);
     }//GEN-LAST:event_btnSorteosActionPerformed
 
     /**

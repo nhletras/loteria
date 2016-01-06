@@ -12,8 +12,9 @@ public class ControlMenuPrincipal {
     public ArrayList<Administracion> la = new ArrayList<Administracion>();
     public ArrayList<Billete> lb = new ArrayList<Billete>();
     public ArrayList<Premio> lp = new ArrayList<Premio>();
+    
 
-    public void realizarOpcion(int opc) {
+    public void elegirOpcion(int opc) {
         switch (opc) {
             case 1:
                 ControlGestionAdministraciones cga = new ControlGestionAdministraciones(la);
