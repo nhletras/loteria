@@ -6,6 +6,8 @@
 package interfaz;
 
 import controladores.ControlGestionAdministraciones;
+import identidades.Administracion;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,6 +26,29 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.cga = cga;
+        // Listener para habilitar edición y mostrar datos de la administración seleccionada
+        tableAdministracion.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int row = tableAdministracion.rowAtPoint(evt.getPoint());
+                int col = tableAdministracion.columnAtPoint(evt.getPoint());
+                if (row >= 0 && col >= 0) 
+                    btnGuardarAdministracion.setEnabled(true);
+                    btnEliminarAdministracion.setEnabled(true);
+            }
+            
+        });
+        DefaultTableModel model = (DefaultTableModel) tableAdministracion.getModel();
+        for (int i = 0; i < cga.la.size(); i++) {
+            String nombre = cga.la.get(i).getNombre();
+            String cif = cga.la.get(i).getCif();
+            String direccion = cga.la.get(i).getDireccion();
+            Object[] data = {nombre,cif,direccion};
+
+            model.addRow(data);
+
+        }
+
     }
 
     /**
@@ -35,58 +60,25 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableAdministracion = new javax.swing.JTable();
         txtNombre = new javax.swing.JTextField();
         txtCif = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
         btnAnadirAdministracion = new javax.swing.JButton();
         btnEliminarAdministracion = new javax.swing.JButton();
         btnGuardarAdministracion = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtAdministracion = new javax.swing.JTextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableAdministracion = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        tableAdministracion.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Nombre", "CIF", "Dirección", ""
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tableAdministracion);
-        if (tableAdministracion.getColumnModel().getColumnCount() > 0) {
-            tableAdministracion.getColumnModel().getColumn(3).setResizable(false);
-            tableAdministracion.getColumnModel().getColumn(3).setPreferredWidth(5);
-        }
-
-        txtNombre.setText("Nombre");
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
-
-        txtCif.setText("CIF");
-
-        txtDireccion.setText("Dirección");
 
         btnAnadirAdministracion.setText("Añadir");
         btnAnadirAdministracion.addActionListener(new java.awt.event.ActionListener() {
@@ -96,23 +88,44 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
         });
 
         btnEliminarAdministracion.setText("Eliminar Seleccionados");
+        btnEliminarAdministracion.setEnabled(false);
         btnEliminarAdministracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarAdministracionActionPerformed(evt);
             }
         });
 
-        btnGuardarAdministracion.setText("Guardar Cambios");
+        btnGuardarAdministracion.setText("Modificar seleccionado");
+        btnGuardarAdministracion.setEnabled(false);
         btnGuardarAdministracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGuardarAdministracionActionPerformed(evt);
             }
         });
 
-        txtAdministracion.setColumns(20);
-        txtAdministracion.setRows(5);
-        txtAdministracion.setText("Premio (Cuantia €) Número de Premios.");
-        jScrollPane2.setViewportView(txtAdministracion);
+        tableAdministracion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "CIF", "Dirección"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tableAdministracion);
+
+        jLabel1.setText("Nombre");
+
+        jLabel2.setText("CIF");
+
+        jLabel3.setText("Dirección");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,43 +134,52 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
+                    .addComponent(btnEliminarAdministracion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnEliminarAdministracion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCif, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAnadirAdministracion, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 8, Short.MAX_VALUE))
-                            .addComponent(btnGuardarAdministracion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCif, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAnadirAdministracion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnGuardarAdministracion, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtCif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAnadirAdministracion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnGuardarAdministracion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAnadirAdministracion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEliminarAdministracion)
-                    .addComponent(btnGuardarAdministracion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(btnEliminarAdministracion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,25 +190,30 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void btnAnadirAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirAdministracionActionPerformed
-        // TODO add your handling code here:
-        cga.anadirAdministracion("", "", "");
+        if (txtNombre.getText().isEmpty() ||
+            txtCif.getText().isEmpty()    ||
+            txtDireccion.getText().isEmpty()) 
+            JOptionPane.showMessageDialog(null, "Error. Falta algún dato.");
+        else {
+            cga.anadirAdministracion(txtNombre.getText(), 
+                                     txtDireccion.getText(),
+                                     txtCif.getText(),
+                                     tableAdministracion); 
+            txtNombre.setText("");
+            txtCif.setText("");
+            txtDireccion.setText("");
+        }
     }//GEN-LAST:event_btnAnadirAdministracionActionPerformed
 
     private void btnGuardarAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarAdministracionActionPerformed
-       
+        cga.modificarDatos(txtNombre,txtCif,txtDireccion);
+
     }//GEN-LAST:event_btnGuardarAdministracionActionPerformed
 
     private void btnEliminarAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAdministracionActionPerformed
-        DefaultTableModel model = (DefaultTableModel) this.tableAdministracion.getModel();
-        int[] rows = tableAdministracion.getSelectedRows();
-        for (int i = 0; i < rows.length; i++) {
-            model.removeRow(rows[i] - i);
-        }
+        cga.eliminarAdministracion(tableAdministracion);
     }//GEN-LAST:event_btnEliminarAdministracionActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -230,10 +257,11 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
     private javax.swing.JButton btnAnadirAdministracion;
     private javax.swing.JButton btnEliminarAdministracion;
     private javax.swing.JButton btnGuardarAdministracion;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tableAdministracion;
-    private javax.swing.JTextArea txtAdministracion;
     private javax.swing.JTextField txtCif;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtNombre;
