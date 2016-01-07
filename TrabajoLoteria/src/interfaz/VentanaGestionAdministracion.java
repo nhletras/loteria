@@ -7,6 +7,7 @@ package interfaz;
 
 import controladores.ControlGestionAdministraciones;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -95,8 +96,18 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
         });
 
         btnEliminarAdministracion.setText("Eliminar Seleccionados");
+        btnEliminarAdministracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarAdministracionActionPerformed(evt);
+            }
+        });
 
         btnGuardarAdministracion.setText("Guardar Cambios");
+        btnGuardarAdministracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarAdministracionActionPerformed(evt);
+            }
+        });
 
         txtAdministracion.setColumns(20);
         txtAdministracion.setRows(5);
@@ -160,6 +171,18 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
         // TODO add your handling code here:
         cga.anadirAdministracion("", "", "");
     }//GEN-LAST:event_btnAnadirAdministracionActionPerformed
+
+    private void btnGuardarAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarAdministracionActionPerformed
+       
+    }//GEN-LAST:event_btnGuardarAdministracionActionPerformed
+
+    private void btnEliminarAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAdministracionActionPerformed
+        DefaultTableModel model = (DefaultTableModel) this.tableAdministracion.getModel();
+        int[] rows = tableAdministracion.getSelectedRows();
+        for (int i = 0; i < rows.length; i++) {
+            model.removeRow(rows[i] - i);
+        }
+    }//GEN-LAST:event_btnEliminarAdministracionActionPerformed
 
     /**
      * @param args the command line arguments
