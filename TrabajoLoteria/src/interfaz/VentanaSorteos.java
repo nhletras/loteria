@@ -38,15 +38,41 @@ public class VentanaSorteos extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnAsignarBilletes = new javax.swing.JButton();
-        comboAdministraciones = new javax.swing.JComboBox<>();
-        comboBilletes = new javax.swing.JComboBox<>();
-        txtNSeries = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtSorteo = new javax.swing.JTextArea();
         btnRealizarSorteo = new javax.swing.JButton();
+        panelAsignarBilletes = new javax.swing.JPanel();
+        lblSeleccionarAdm = new javax.swing.JLabel();
+        comboAdministraciones = new javax.swing.JComboBox<>();
+        lblSeleccionBillete = new javax.swing.JLabel();
+        comboBilletes = new javax.swing.JComboBox<>();
+        lblNSeries = new javax.swing.JLabel();
+        txtNSeries = new javax.swing.JTextField();
+        btnAsignarBilletes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        txtSorteo.setColumns(20);
+        txtSorteo.setRows(5);
+        txtSorteo.setText("Comenzando nuevo sorteo...\n");
+        jScrollPane1.setViewportView(txtSorteo);
+
+        btnRealizarSorteo.setText("Realizar Sorteo");
+        btnRealizarSorteo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRealizarSorteoActionPerformed(evt);
+            }
+        });
+
+        panelAsignarBilletes.setBorder(javax.swing.BorderFactory.createTitledBorder("Asignar Billetes:"));
+
+        lblSeleccionarAdm.setText("Selecciona una Administración :");
+
+        lblSeleccionBillete.setText("Seleccione un Billete :");
+
+        lblNSeries.setText("Indique el número de series :");
+
+        txtNSeries.setText("1");
 
         btnAsignarBilletes.setText("Asignar Billetes");
         btnAsignarBilletes.setToolTipText("");
@@ -56,26 +82,46 @@ public class VentanaSorteos extends javax.swing.JDialog {
             }
         });
 
-        comboAdministraciones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboAdministracionesActionPerformed(evt);
-            }
-        });
-
-        comboBilletes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboBilletesActionPerformed(evt);
-            }
-        });
-
-        txtNSeries.setText("1");
-
-        txtSorteo.setColumns(20);
-        txtSorteo.setRows(5);
-        txtSorteo.setText("Comenzando nuevo sorteo...\n");
-        jScrollPane1.setViewportView(txtSorteo);
-
-        btnRealizarSorteo.setText("Realizar Sorteo");
+        javax.swing.GroupLayout panelAsignarBilletesLayout = new javax.swing.GroupLayout(panelAsignarBilletes);
+        panelAsignarBilletes.setLayout(panelAsignarBilletesLayout);
+        panelAsignarBilletesLayout.setHorizontalGroup(
+            panelAsignarBilletesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAsignarBilletesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelAsignarBilletesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAsignarBilletesLayout.createSequentialGroup()
+                        .addComponent(lblSeleccionarAdm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                        .addComponent(comboAdministraciones, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelAsignarBilletesLayout.createSequentialGroup()
+                        .addComponent(lblSeleccionBillete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(comboBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelAsignarBilletesLayout.createSequentialGroup()
+                        .addComponent(lblNSeries)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtNSeries, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addComponent(btnAsignarBilletes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        panelAsignarBilletesLayout.setVerticalGroup(
+            panelAsignarBilletesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAsignarBilletesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelAsignarBilletesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSeleccionarAdm)
+                    .addComponent(comboAdministraciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelAsignarBilletesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSeleccionBillete)
+                    .addComponent(comboBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelAsignarBilletesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNSeries)
+                    .addComponent(txtNSeries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAsignarBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,50 +130,33 @@ public class VentanaSorteos extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panelAsignarBilletes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRealizarSorteo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1)
-                    .addComponent(btnAsignarBilletes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(comboAdministraciones, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(comboBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNSeries, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 9, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtNSeries, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(comboBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(comboAdministraciones))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAsignarBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelAsignarBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRealizarSorteo, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                .addGap(6, 6, 6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRealizarSorteo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void comboAdministracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAdministracionesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboAdministracionesActionPerformed
-
     private void btnAsignarBilletesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarBilletesActionPerformed
         cs.asignarBilletes((Administracion)comboAdministraciones.getSelectedItem(), (Billete)comboBilletes.getSelectedItem(), Integer.parseInt(txtNSeries.getText()));
     }//GEN-LAST:event_btnAsignarBilletesActionPerformed
 
-    private void comboBilletesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBilletesActionPerformed
+    private void btnRealizarSorteoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarSorteoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboBilletesActionPerformed
+    }//GEN-LAST:event_btnRealizarSorteoActionPerformed
 
     private void rellenarComboAdministracion() {
         Administracion aAdministraciones[] = cs.obtenerComboAdministraciones();
@@ -193,6 +222,10 @@ public class VentanaSorteos extends javax.swing.JDialog {
     private javax.swing.JComboBox<Administracion> comboAdministraciones;
     private javax.swing.JComboBox<Billete> comboBilletes;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblNSeries;
+    private javax.swing.JLabel lblSeleccionBillete;
+    private javax.swing.JLabel lblSeleccionarAdm;
+    private javax.swing.JPanel panelAsignarBilletes;
     private javax.swing.JTextField txtNSeries;
     private javax.swing.JTextArea txtSorteo;
     // End of variables declaration//GEN-END:variables
