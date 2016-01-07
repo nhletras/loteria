@@ -76,9 +76,15 @@ public class ControlMenuPrincipal {
 
     public void cargarBilletes() {
         for (int i = 0; i <= 99999; i++) {
-            if (i == 102 || i == 300 || i == 99999) {
-                Billete b = new Billete(i, 195, true);
+            if(i<30){
+                Billete b = new Billete(i, 194, true);
                 lb.add(b);
+                if(i<=15){
+                    b.lAB.add(la.get(1));
+                    b.lAB.add(la.get(0));
+                }else{
+                    b.lAB.add(la.get(2));
+                }
             } else {
                 Billete b = new Billete(i, 195, false);
                 lb.add(b);

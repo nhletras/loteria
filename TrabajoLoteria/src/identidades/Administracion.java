@@ -44,6 +44,6 @@ public class Administracion {
 
     @Override
     public String toString() {
-        return this.nombre + "(" + this.cif+ ")" + "Dirección: "+this.direccion +"\n "+lbAd.toString();
+        return this.nombre;
     }
 }

@@ -1,17 +1,17 @@
-NOMBRE ADMINISTRACION: Administracion1
+ADMINISTRACION: Administracion1
 B:
 165;1;true
 2541;2;true
 38574;3;true
 48541;4;true
-NOMBRE ADMINISTRACION: Administracion2
+ADMINISTRACION: Administracion2
 B:
 18879;1;true
 0;2;true
 99999;3;true
 6654;4;true
 4645;4;true
-NOMBRE ADMINISTRACION: Administracion3
+ADMINISTRACION: Administracion3
 B:
 1345;1;true
 2123;2;true

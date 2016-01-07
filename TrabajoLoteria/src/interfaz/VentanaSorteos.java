@@ -64,7 +64,7 @@ public class VentanaSorteos extends javax.swing.JDialog {
             }
         });
 
-        panelAsignarBilletes.setBorder(javax.swing.BorderFactory.createTitledBorder("Asignar Billetes:"));
+        panelAsignarBilletes.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblSeleccionarAdm.setText("Selecciona una Administración :");
 
@@ -91,7 +91,7 @@ public class VentanaSorteos extends javax.swing.JDialog {
                 .addGroup(panelAsignarBilletesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAsignarBilletesLayout.createSequentialGroup()
                         .addComponent(lblSeleccionarAdm)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                         .addComponent(comboAdministraciones, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelAsignarBilletesLayout.createSequentialGroup()
                         .addComponent(lblSeleccionBillete)
@@ -140,11 +140,11 @@ public class VentanaSorteos extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelAsignarBilletes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRealizarSorteo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnRealizarSorteo, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -155,7 +155,7 @@ public class VentanaSorteos extends javax.swing.JDialog {
     }//GEN-LAST:event_btnAsignarBilletesActionPerformed
 
     private void btnRealizarSorteoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarSorteoActionPerformed
-        // TODO add your handling code here:
+        cs.realizarSorteo(txtSorteo);        
     }//GEN-LAST:event_btnRealizarSorteoActionPerformed
 
     private void rellenarComboAdministracion() {
