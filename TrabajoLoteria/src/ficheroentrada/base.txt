@@ -1,6 +1,6 @@
 ADMINISTRACION
 Administracion1;11111111A;Direccion Adm 1
-Administracion2;22222222B2Direccion Adm 2
+Administracion2;22222222B2;Direccion Adm 2
 Administracion3;33333333c;Direccion Adm 3
 PREMIOS
 El Gordo (Primer Premio);4000000;1

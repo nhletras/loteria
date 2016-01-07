@@ -16,7 +16,6 @@ public class ControlMenuPrincipal {
     public ArrayList<Administracion> la = new ArrayList<Administracion>();
     public ArrayList<Billete> lb = new ArrayList<Billete>();
     public ArrayList<Premio> lp = new ArrayList<Premio>();
-    
 
     public void elegirOpcion(int opc, JFrame padre) {
         switch (opc) {
@@ -27,16 +26,17 @@ public class ControlMenuPrincipal {
                 break;
             case 2:
                 ControlGestionPremios cgp = new ControlGestionPremios(lp);
-                VentanaGestionPremios vgp = new VentanaGestionPremios(padre, true,cgp);
+                VentanaGestionPremios vgp = new VentanaGestionPremios(padre, true, cgp);
                 vgp.setVisible(true);
                 break;
             case 3:
-                ControlSorteo cs = new ControlSorteo(la,lb,lp);
+                ControlSorteo cs = new ControlSorteo(la, lb, lp);
                 VentanaSorteos vs = new VentanaSorteos(padre, true, cs);
                 vs.setVisible(true);
                 break;
         }
     }
+
     //Método para cargar los datos del fichero base.txt en las listas anteriores
     public void cargarDatosFichero() {
         String line;
@@ -45,7 +45,7 @@ public class ControlMenuPrincipal {
         boolean premios = false;
 
         try {
-            File archive = new File("ficheroentrada/base.txt");
+            File archive = new File("C:\\Users\\Matu\\Documents\\NetBeansProjects\\loteria\\TrabajoLoteria\\src\\ficheroentrada\\base.txt");
             FileReader fr = new FileReader(archive);
             BufferedReader br = new BufferedReader(fr);
             line = br.readLine().trim();
@@ -66,16 +66,23 @@ public class ControlMenuPrincipal {
                     Premio p = new Premio(datos[0], Integer.parseInt(datos[1]), Integer.parseInt(datos[2]));
                     lp.add(p);
                 }
+                line = br.readLine().trim();
             }
 
         } catch (IOException e) {
             System.err.println("Error al leer el fichero - " + e);
         }
     }
-    public void cargarBilletes(){
-        for(int i=0;i<=99999;i++){
-            Billete b = new Billete(i, 195, false);
-            lb.add(b);
+
+    public void cargarBilletes() {
+        for (int i = 0; i <= 99999; i++) {
+            if (i == 102 || i == 300 || i == 99999) {
+                Billete b = new Billete(i, 195, true);
+                lb.add(b);
+            } else {
+                Billete b = new Billete(i, 195, false);
+                lb.add(b);
+            }
         }
     }
 }
