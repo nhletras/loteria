@@ -2,19 +2,20 @@ package identidades;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashSet;
 
 public class Administracion {
 
     private String nombre;
     private String cif;
     private String direccion;
-    List<Billete> lbAd;
+    public HashSet<Billete> lbAd;
 
     public Administracion(String nombre, String cif, String direccion) {
         this.nombre = nombre;
         this.cif = cif;
         this.direccion = direccion;
-        this.lbAd = new ArrayList<Billete>();
+        this.lbAd = new HashSet<Billete>();
     }
 
     public String getNombre() {
@@ -43,7 +44,6 @@ public class Administracion {
 
     @Override
     public String toString() {
-        return this.nombre + "(" + this.cif + ")" + this.direccion;
+        return this.nombre + "(" + this.cif+ ")" + "Dirección: "+this.direccion +"\n "+lbAd.toString();
     }
-
 }

@@ -37,6 +37,6 @@ public class Billete {
     }
     
     public String toString(){
-        return ""+this.numero;
+        return ""+this.numero+" Nº series restantes: "+this.numSeries;
     }
 }

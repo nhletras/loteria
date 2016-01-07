@@ -6,6 +6,9 @@
 package interfaz;
 
 import controladores.ControlSorteo;
+import identidades.Administracion;
+import identidades.Billete;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,7 +21,6 @@ public class VentanaSorteos extends javax.swing.JDialog {
     /**
      * Creates new form VentanaSorteos
      */
-    
     public VentanaSorteos(java.awt.Frame parent, boolean modal, ControlSorteo cs) {
         super(parent, modal);
         initComponents();
@@ -54,21 +56,19 @@ public class VentanaSorteos extends javax.swing.JDialog {
             }
         });
 
-        comboAdministraciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Administracion...", "Item 2", "Item 3", "Item 4" }));
         comboAdministraciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboAdministracionesActionPerformed(evt);
             }
         });
 
-        comboBilletes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione billete...", "Item 2", "Item 3", "Item 4" }));
         comboBilletes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBilletesActionPerformed(evt);
             }
         });
 
-        txtNSeries.setText("Nº Series");
+        txtNSeries.setText("1");
 
         txtSorteo.setColumns(20);
         txtSorteo.setRows(5);
@@ -122,28 +122,29 @@ public class VentanaSorteos extends javax.swing.JDialog {
     }//GEN-LAST:event_comboAdministracionesActionPerformed
 
     private void btnAsignarBilletesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarBilletesActionPerformed
-        // TODO add your handling code here:
+        cs.asignarBilletes((Administracion)comboAdministraciones.getSelectedItem(), (Billete)comboBilletes.getSelectedItem(), Integer.parseInt(txtNSeries.getText()));
     }//GEN-LAST:event_btnAsignarBilletesActionPerformed
 
     private void comboBilletesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBilletesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBilletesActionPerformed
 
-    private void rellenarComboAdministracion(){
-        String[] aAdministraciones = cs.obtenerComboAdministraciones();
+    private void rellenarComboAdministracion() {
+        Administracion aAdministraciones[] = cs.obtenerComboAdministraciones();
         comboAdministraciones.removeAllItems();
-        for(int i=0;i<aAdministraciones.length;i++){
+        for (int i = 0; i < aAdministraciones.length; i++) {
             comboAdministraciones.addItem(aAdministraciones[i]);
         }
     }
-    
-    private void rellenarComboBilletes(){
-        String[] aBilletes = cs.obtenerComboBilletes();
+
+    private void rellenarComboBilletes() {
+        Billete aBilletes[] = cs.obtenerComboBilletes();
         comboBilletes.removeAllItems();
-        for(int i=0;i<aBilletes.length;i++){
+        for (int i = 0; i < aBilletes.length; i++) {
             comboBilletes.addItem(aBilletes[i]);
         }
     }
+
     /**
      * @param args the command line arguments
      */
@@ -189,8 +190,8 @@ public class VentanaSorteos extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAsignarBilletes;
     private javax.swing.JButton btnRealizarSorteo;
-    private javax.swing.JComboBox<String> comboAdministraciones;
-    private javax.swing.JComboBox<String> comboBilletes;
+    private javax.swing.JComboBox<Administracion> comboAdministraciones;
+    private javax.swing.JComboBox<Billete> comboBilletes;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtNSeries;
     private javax.swing.JTextArea txtSorteo;

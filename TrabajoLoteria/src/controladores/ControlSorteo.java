@@ -5,6 +5,7 @@ import identidades.Billete;
 import identidades.Premio;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 
 public class ControlSorteo {
 
@@ -18,35 +19,50 @@ public class ControlSorteo {
         this.lp = lp;
     }
 
-    public String[] obtenerComboAdministraciones() {
-        String aAdministraciones[] = new String[la.size()];
+    public Administracion[] obtenerComboAdministraciones() {
+        Administracion aAdministraciones[] = new Administracion[la.size()];
         Administracion a;
         int contador = 0;
 
         Iterator it = la.iterator();
         while (it.hasNext()) {
             a = (Administracion) it.next();
-            aAdministraciones[contador] = a.getNombre();
+            aAdministraciones[contador] = a;
             contador++;
         }
 
         return aAdministraciones;
     }
 
-    public String[] obtenerComboBilletes() {
-        ArrayList<String> alBilletes = new ArrayList<String>();
-        String[] aBilletes;
+    public Billete[] obtenerComboBilletes() {
+        ArrayList<Billete> alBilletes = new ArrayList<Billete>();
         Billete b;
-        
+
         Iterator it = lb.iterator();
         while (it.hasNext()) {
             b = (Billete) it.next();
             if (b.isAsignado()) {
-                alBilletes.add(""+b.getNumero());
+                alBilletes.add(b);
             }
         }
-        aBilletes = alBilletes.toArray();
+        Billete aBilletes[] = alBilletes.toArray(new Billete[alBilletes.size()]);
         return aBilletes;
     }
 
+    public void asignarBilletes(Administracion adminsitracion, Billete billete, int numeroSeries) {
+        if (billete.getNumSeries() <= 0) {
+            JOptionPane.showMessageDialog(null, "No quedan series para el billete " + billete.getNumero());
+        } else {
+            int numSer = billete.getNumSeries() - numeroSeries;
+            if (numSer >= 0) {
+                adminsitracion.lbAd.add(billete);
+                billete.setNumSeries(numSer);
+            }else{
+                numSer = 0;
+                adminsitracion.lbAd.add(billete);
+                billete.setNumSeries(numSer);
+            }
+        }
+        JOptionPane.showMessageDialog(null, la);
+    }
 }
