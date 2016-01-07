@@ -2,6 +2,8 @@ package controladores;
 
 import identidades.*;
 import interfaz.VentanaGestionAdministracion;
+import interfaz.VentanaGestionPremios;
+import interfaz.VentanaSorteos;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -25,21 +27,25 @@ public class ControlMenuPrincipal {
                 break;
             case 2:
                 ControlGestionPremios cgp = new ControlGestionPremios(lp);
+                VentanaGestionPremios vgp = new VentanaGestionPremios(padre, true,cgp);
+                vgp.setVisible(true);
                 break;
             case 3:
                 ControlSorteo cs = new ControlSorteo(la,lb,lp);
+                VentanaSorteos vs = new VentanaSorteos(padre, true, cs);
+                vs.setVisible(true);
                 break;
         }
     }
     //Método para cargar los datos del fichero base.txt en las listas anteriores
-    public void cargarDatosFichero(String fileName) {
+    public void cargarDatosFichero() {
         String line;
         String[] datos;
         boolean administracion = false;
         boolean premios = false;
 
         try {
-            File archive = new File("ficheroentrada/" + fileName);
+            File archive = new File("ficheroentrada/base.txt");
             FileReader fr = new FileReader(archive);
             BufferedReader br = new BufferedReader(fr);
             line = br.readLine().trim();

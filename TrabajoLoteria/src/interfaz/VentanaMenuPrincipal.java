@@ -2,7 +2,7 @@ package interfaz;
 
 import controladores.ControlMenuPrincipal;
 
-public class MenuPrincipal extends javax.swing.JFrame {
+public class VentanaMenuPrincipal extends javax.swing.JFrame {
 
     public VentanaGestionAdministracion vga;
     public VentanaGestionPremios vgp;
@@ -12,13 +12,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form VentanaPrincipal
      */
-    public MenuPrincipal(ControlMenuPrincipal cmp) {
+    public VentanaMenuPrincipal(ControlMenuPrincipal cmp) {
         initComponents();
-        //vga = new VentanaGestionAdministracion(this, true, null);
-        //vgp = new VentanaGestionPremios(this, true);
-        //vs = new VentanaSorteos(this, true);
         this.cmp = cmp;
-
+        cmp.cargarDatosFichero();
+        cmp.cargarBilletes();
     }
 
     /**
@@ -114,17 +112,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdministracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministracionesActionPerformed
-        //vga.setVisible(true);
         cmp.elegirOpcion(1,this);
     }//GEN-LAST:event_btnAdministracionesActionPerformed
 
     private void btnPremiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPremiosActionPerformed
-        vgp.setVisible(true);
         cmp.elegirOpcion(2,this);
     }//GEN-LAST:event_btnPremiosActionPerformed
 
     private void btnSorteosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSorteosActionPerformed
-        vs.setVisible(true);
         cmp.elegirOpcion(3,this);
     }//GEN-LAST:event_btnSorteosActionPerformed
 
@@ -145,14 +140,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -161,7 +160,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuPrincipal(new ControlMenuPrincipal()).setVisible(true);
+                new VentanaMenuPrincipal(new ControlMenuPrincipal()).setVisible(true);
             }
         });
     }

@@ -13,15 +13,16 @@ import controladores.ControlSorteo;
  */
 public class VentanaSorteos extends javax.swing.JDialog {
 
-    public ControlSorteo cs;
+    public static ControlSorteo cs;
 
     /**
      * Creates new form VentanaSorteos
      */
     
-    public VentanaSorteos(java.awt.Frame parent, boolean modal) {
+    public VentanaSorteos(java.awt.Frame parent, boolean modal, ControlSorteo cs) {
         super(parent, modal);
         initComponents();
+        this.cs = cs;
     }
 
     /**
@@ -156,7 +157,7 @@ public class VentanaSorteos extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                VentanaSorteos dialog = new VentanaSorteos(new javax.swing.JFrame(), true);
+                VentanaSorteos dialog = new VentanaSorteos(new javax.swing.JFrame(), true, cs);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
