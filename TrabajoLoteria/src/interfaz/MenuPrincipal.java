@@ -1,4 +1,3 @@
-
 package interfaz;
 
 import controladores.ControlMenuPrincipal;
@@ -9,16 +8,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public VentanaGestionPremios vgp;
     public VentanaSorteos vs;
     public ControlMenuPrincipal cmp;
+
     /**
      * Creates new form VentanaPrincipal
      */
     public MenuPrincipal(ControlMenuPrincipal cmp) {
         initComponents();
-        vga = new VentanaGestionAdministracion(this, true);
-        vgp = new VentanaGestionPremios(this, true);
-        vs = new VentanaSorteos(this, true);
+        //vga = new VentanaGestionAdministracion(this, true, null);
+        //vgp = new VentanaGestionPremios(this, true);
+        //vs = new VentanaSorteos(this, true);
         this.cmp = cmp;
-        
+
     }
 
     /**
@@ -114,18 +114,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdministracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministracionesActionPerformed
-        vga.setVisible(true);
-        cmp.elegirOpcion(1);
+        //vga.setVisible(true);
+        cmp.elegirOpcion(1,this);
     }//GEN-LAST:event_btnAdministracionesActionPerformed
 
     private void btnPremiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPremiosActionPerformed
         vgp.setVisible(true);
-        cmp.elegirOpcion(2);
+        cmp.elegirOpcion(2,this);
     }//GEN-LAST:event_btnPremiosActionPerformed
 
     private void btnSorteosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSorteosActionPerformed
         vs.setVisible(true);
-        cmp.elegirOpcion(3);
+        cmp.elegirOpcion(3,this);
     }//GEN-LAST:event_btnSorteosActionPerformed
 
     /**

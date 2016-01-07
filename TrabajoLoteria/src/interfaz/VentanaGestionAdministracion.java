@@ -14,14 +14,15 @@ import javax.swing.JOptionPane;
  */
 public class VentanaGestionAdministracion extends javax.swing.JDialog {
 
-    public ControlGestionAdministraciones cga;
+    public static ControlGestionAdministraciones cga;
 
     /**
      * Creates new form VentanaGestionPremios
      */
-    public VentanaGestionAdministracion(java.awt.Frame parent, boolean modal) {
+    public VentanaGestionAdministracion(java.awt.Frame parent, boolean modal, ControlGestionAdministraciones cga) {
         super(parent, modal);
         initComponents();
+        this.cga = cga;
     }
 
     /**
@@ -157,7 +158,7 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
 
     private void btnAnadirAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirAdministracionActionPerformed
         // TODO add your handling code here:
-        cga.anadirAdministracion("","","");
+        cga.anadirAdministracion("", "", "");
     }//GEN-LAST:event_btnAnadirAdministracionActionPerformed
 
     /**
@@ -186,11 +187,11 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(VentanaGestionPremios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                VentanaGestionAdministracion dialog = new VentanaGestionAdministracion(new javax.swing.JFrame(), true);
+                VentanaGestionAdministracion dialog = new VentanaGestionAdministracion(new javax.swing.JFrame(), true, cga);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

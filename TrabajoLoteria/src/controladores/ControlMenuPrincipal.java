@@ -1,11 +1,13 @@
 package controladores;
 
 import identidades.*;
+import interfaz.VentanaGestionAdministracion;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 
 public class ControlMenuPrincipal {
 
@@ -14,10 +16,12 @@ public class ControlMenuPrincipal {
     public ArrayList<Premio> lp = new ArrayList<Premio>();
     
 
-    public void elegirOpcion(int opc) {
+    public void elegirOpcion(int opc, JFrame padre) {
         switch (opc) {
             case 1:
                 ControlGestionAdministraciones cga = new ControlGestionAdministraciones(la);
+                VentanaGestionAdministracion vga = new VentanaGestionAdministracion(padre, true, cga);
+                vga.setVisible(true);
                 break;
             case 2:
                 ControlGestionPremios cgp = new ControlGestionPremios(lp);

@@ -11,7 +11,8 @@ public class ControlGestionAdministraciones{
     }
 
     public void anadirAdministracion(String nombre, String cif, String direccion) {
-        Administracion a = new Administracion(nombre, cif, direccion);
+        //Administracion a = new Administracion(nombre, cif, direccion);
+        JOptionPane.showMessageDialog(null, "entra");
     }
     
 }
