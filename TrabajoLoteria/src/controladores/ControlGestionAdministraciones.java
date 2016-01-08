@@ -3,6 +3,7 @@ package controladores;
 
 import identidades.Administracion;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -48,22 +49,45 @@ public class ControlGestionAdministraciones{
         }
     }
     
-    public void modificarDatos(JTextField nombre, JTextField cif, JTextField direccion) {
-        Administracion a = new Administracion(nombre.getText(), 
-                cif.getText(), direccion.getText());
-        if(!nombre.getText().isEmpty()) la.get(la.indexOf(a)).setNombre(nombre.getText());
-        if(!cif.getText().isEmpty()) la.get(la.indexOf(a)).setCif(cif.getText());
-        if(!direccion.getText().isEmpty()) la.get(la.indexOf(a)).setDireccion(direccion.getText());
+    public void modificarDatos(JTextField nombre, JTextField cif, JTextField direccion,String filaObjetoaModificar){
+        
+        Administracion aaMod = null;
+        Iterator<Administracion> it = la.iterator();
+        while(it.hasNext()){
+            Administracion ad = it.next();
+            if(ad.getCif().equals(filaObjetoaModificar)){
+                aaMod = ad;
+            }
+        }
+        
+        if(!nombre.getText().isEmpty() && la.contains(aaMod))
+            la.get(la.indexOf(aaMod)).setNombre(nombre.getText());
+        if(!cif.getText().isEmpty() && la.contains(aaMod)) 
+            la.get(la.indexOf(aaMod)).setCif(cif.getText());
+        if(!direccion.getText().isEmpty() && la.contains(aaMod))
+            la.get(la.indexOf(aaMod)).setDireccion(direccion.getText());
         nombre.setText("");
-        nombre.setText("");
-        nombre.setText("");
+        cif.setText("");
+        direccion.setText("");
     }
     
     public ArrayList<Administracion> obtenerListaAdministraciones(){
         return la;
     }
-    
-    
+    public void rellenarTablaConAdministraciones(JTable tableAdministracion) {
+        DefaultTableModel model = (DefaultTableModel) tableAdministracion.getModel();
+        model.setRowCount(0);
+        
+        
+        model = (DefaultTableModel) tableAdministracion.getModel();
+        for (int i = 0; i < la.size(); i++) {
+            String nombre = la.get(i).getNombre();
+            String cif = la.get(i).getCif();
+            String direccion = la.get(i).getDireccion();
+            Object[] data = {nombre,cif,direccion};
+            model.addRow(data);
+        }
+    }
     
     
 

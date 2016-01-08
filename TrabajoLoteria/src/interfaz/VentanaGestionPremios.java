@@ -6,6 +6,10 @@
 package interfaz;
 
 import controladores.ControlGestionPremios;
+import identidades.Premio;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,11 +22,24 @@ public class VentanaGestionPremios extends javax.swing.JDialog {
     /**
      * Creates new form VentanaGestionPremios
      */
-    
     public VentanaGestionPremios(java.awt.Frame parent, boolean modal, ControlGestionPremios cgp) {
         super(parent, modal);
         initComponents();
         this.cgp = cgp;
+        // Listener para habilitar edición y mostrar datos del Premios seleccionado
+        tablePremios.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                int row = tablePremios.rowAtPoint(evt.getPoint());
+                int col = tablePremios.columnAtPoint(evt.getPoint());
+                if (row >= 0 && col >= 0) 
+                    btnGuardarPremio.setEnabled(true);
+                    btnEliminarPremios.setEnabled(true);
+            }
+            
+        });
+    cgp.rellenarTablaConPremios(tablePremios);
+
     }
 
     /**
@@ -34,63 +51,20 @@ public class VentanaGestionPremios extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblPremios = new javax.swing.JTable();
         txtNombrePremio = new javax.swing.JTextField();
-        txtCuantia = new javax.swing.JTextField();
-        txtNPremios = new javax.swing.JTextField();
+        txtnPremio = new javax.swing.JTextField();
+        txtCuantiaPremio = new javax.swing.JTextField();
         btnAnadirPremio = new javax.swing.JButton();
         btnEliminarPremios = new javax.swing.JButton();
-        btnGuardarPremios = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtPremios = new javax.swing.JTextArea();
+        btnGuardarPremio = new javax.swing.JButton();
+        lblNombrePremio = new javax.swing.JLabel();
+        lblCuantiaPremio = new javax.swing.JLabel();
+        lblnPremios = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablePremios = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        tblPremios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Premio", "Cuantia", "Número de Premios", ""
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Boolean.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tblPremios);
-        if (tblPremios.getColumnModel().getColumnCount() > 0) {
-            tblPremios.getColumnModel().getColumn(3).setResizable(false);
-            tblPremios.getColumnModel().getColumn(3).setPreferredWidth(5);
-        }
-
-        txtNombrePremio.setText("Premio");
-        txtNombrePremio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombrePremioActionPerformed(evt);
-            }
-        });
-
-        txtCuantia.setText("Cuantia");
-
-        txtNPremios.setText("Numero Premios");
-        txtNPremios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNPremiosActionPerformed(evt);
-            }
-        });
+        setResizable(false);
 
         btnAnadirPremio.setText("Añadir");
         btnAnadirPremio.addActionListener(new java.awt.event.ActionListener() {
@@ -100,13 +74,44 @@ public class VentanaGestionPremios extends javax.swing.JDialog {
         });
 
         btnEliminarPremios.setText("Eliminar Seleccionados");
+        btnEliminarPremios.setEnabled(false);
+        btnEliminarPremios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarPremiosActionPerformed(evt);
+            }
+        });
 
-        btnGuardarPremios.setText("Guardar Cambios");
+        btnGuardarPremio.setText("Modificar seleccionado");
+        btnGuardarPremio.setEnabled(false);
+        btnGuardarPremio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarPremioActionPerformed(evt);
+            }
+        });
 
-        txtPremios.setColumns(20);
-        txtPremios.setRows(5);
-        txtPremios.setText("Premio (Cuantia €) Número de Premios.");
-        jScrollPane2.setViewportView(txtPremios);
+        lblNombrePremio.setText("Nombre");
+
+        lblCuantiaPremio.setText("Cuantia");
+
+        lblnPremios.setText("Numero de Premios");
+
+        tablePremios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Cuantia", "Numero Premios"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tablePremios);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,64 +120,88 @@ public class VentanaGestionPremios extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
                     .addComponent(jScrollPane1)
+                    .addComponent(btnEliminarPremios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnEliminarPremios, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtNombrePremio, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCuantia, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtNPremios, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnAnadirPremio, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 8, Short.MAX_VALUE))
-                            .addComponent(btnGuardarPremios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(lblCuantiaPremio)
+                            .addComponent(lblNombrePremio)
+                            .addComponent(lblnPremios))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtnPremio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtCuantiaPremio, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNombrePremio, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAnadirPremio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnGuardarPremio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNombrePremio)
+                            .addComponent(txtNombrePremio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblCuantiaPremio)
+                            .addComponent(txtCuantiaPremio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblnPremios)
+                            .addComponent(txtnPremio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAnadirPremio, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnGuardarPremio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombrePremio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCuantia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNPremios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAnadirPremio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEliminarPremios)
-                    .addComponent(btnGuardarPremios))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(btnEliminarPremios, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombrePremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombrePremioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombrePremioActionPerformed
-
     private void btnAnadirPremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirPremioActionPerformed
-        // TODO add your handling code here:
-        cgp.anadirPremio(txtNombrePremio.getText(),Integer.parseInt(txtCuantia.getText()),Integer.parseInt(txtNPremios.getText()));
+        if (txtNombrePremio.getText().isEmpty() ||
+            txtnPremio.getText().isEmpty()    ||
+            txtCuantiaPremio.getText().isEmpty()) 
+            JOptionPane.showMessageDialog(null, "Error. Falta algún dato.");
+        else {
+            cgp.anadirPremio(txtNombrePremio.getText(), 
+                                     Integer.parseInt(txtCuantiaPremio.getText()),
+                                     Integer.parseInt(txtnPremio.getText()),
+                                     tablePremios); 
+            txtNombrePremio.setText("");
+            txtnPremio.setText("");
+            txtCuantiaPremio.setText("");
+        }
+        btnGuardarPremio.setEnabled(false);
     }//GEN-LAST:event_btnAnadirPremioActionPerformed
 
-    private void txtNPremiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNPremiosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNPremiosActionPerformed
+    private void btnGuardarPremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarPremioActionPerformed
+        try{
+        cgp.modificarDatos(txtNombrePremio,txtCuantiaPremio,txtnPremio,(String)tablePremios.getValueAt(tablePremios.getSelectedRow(), 0));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Debe tener una fila seleccionada");
+        }
+        btnGuardarPremio.setEnabled(false);
+        cgp.rellenarTablaConPremios(tablePremios);
+    }//GEN-LAST:event_btnGuardarPremioActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnEliminarPremiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPremiosActionPerformed
+        cgp.eliminarPremio(tablePremios);
+        btnGuardarPremio.setEnabled(false);
+    }//GEN-LAST:event_btnEliminarPremiosActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -196,7 +225,7 @@ public class VentanaGestionPremios extends javax.swing.JDialog {
             java.util.logging.Logger.getLogger(VentanaGestionPremios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -215,13 +244,14 @@ public class VentanaGestionPremios extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnadirPremio;
     private javax.swing.JButton btnEliminarPremios;
-    private javax.swing.JButton btnGuardarPremios;
+    private javax.swing.JButton btnGuardarPremio;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tblPremios;
-    private javax.swing.JTextField txtCuantia;
-    private javax.swing.JTextField txtNPremios;
+    private javax.swing.JLabel lblCuantiaPremio;
+    private javax.swing.JLabel lblNombrePremio;
+    private javax.swing.JLabel lblnPremios;
+    private javax.swing.JTable tablePremios;
+    private javax.swing.JTextField txtCuantiaPremio;
     private javax.swing.JTextField txtNombrePremio;
-    private javax.swing.JTextArea txtPremios;
+    private javax.swing.JTextField txtnPremio;
     // End of variables declaration//GEN-END:variables
 }

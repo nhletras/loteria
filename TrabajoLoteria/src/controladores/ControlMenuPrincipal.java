@@ -72,18 +72,23 @@ public class ControlMenuPrincipal {
         } catch (IOException e) {
             System.err.println("Error al leer el fichero - " + e);
         }
+        
+        
     }
 
     public void cargarBilletes() {
         for (int i = 0; i <= 99999; i++) {
-            if(i<30){
-                Billete b = new Billete(i, 194, true);
+            if(i<1900){
+                Billete b = new Billete(i, 193, true);
                 lb.add(b);
-                if(i<=15){
+                if(i<=150){
                     b.lAB.add(la.get(1));
+                    la.get(1).lbAd.add(b);
                     b.lAB.add(la.get(0));
+                    la.get(0).lbAd.add(b);
                 }else{
                     b.lAB.add(la.get(2));
+                    la.get(2).lbAd.add(b);
                 }
             } else {
                 Billete b = new Billete(i, 195, false);

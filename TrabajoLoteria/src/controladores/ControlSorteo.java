@@ -60,6 +60,7 @@ public class ControlSorteo {
                 adminsitracion.lbAd.add(billete);
                 billete.setNumSeries(numSer);
                 billete.setAsignado(true);
+                billete.lAB.add(adminsitracion);
                 JOptionPane.showMessageDialog(null, "Se ha asignado el billete "+String.format("%05d",billete.getNumero())+" a la administracion "+adminsitracion.getNombre());
             } else {
                 JOptionPane.showMessageDialog(null, "Solo han sido asignadas "+String.format("%05d",billete.getNumSeries())+" series");
@@ -67,6 +68,7 @@ public class ControlSorteo {
                 adminsitracion.lbAd.add(billete);
                 billete.setNumSeries(numSer);
                 billete.setAsignado(true);
+                billete.lAB.add(adminsitracion);
                 JOptionPane.showMessageDialog(null, "Se ha asignado el billete "+String.format("%05d",billete.getNumero())+" a la administracion "+adminsitracion.getNombre());
             }
         }

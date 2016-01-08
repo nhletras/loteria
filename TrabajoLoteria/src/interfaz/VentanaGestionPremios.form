@@ -3,6 +3,7 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -26,30 +27,30 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane2" max="32767" attributes="0"/>
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <Component id="btnEliminarPremios" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="btnEliminarPremios" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="txtNombrePremio" min="-2" pref="134" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtCuantia" min="-2" pref="131" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblCuantiaPremio" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNombrePremio" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblnPremios" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtnPremio" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="txtCuantiaPremio" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="txtNombrePremio" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="txtNPremios" min="-2" pref="135" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnAnadirPremio" min="-2" pref="85" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="btnGuardarPremios" max="32767" attributes="0"/>
+                          <Component id="btnAnadirPremio" max="32767" attributes="0"/>
+                          <Component id="btnGuardarPremio" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,95 +58,44 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="132" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtNombrePremio" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCuantia" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNPremios" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAnadirPremio" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnEliminarPremios" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnGuardarPremios" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" pref="131" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="137" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblNombrePremio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNombrePremio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lblCuantiaPremio" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCuantiaPremio" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblnPremios" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtnPremio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="btnAnadirPremio" min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnGuardarPremio" min="-2" pref="30" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btnEliminarPremios" min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTable" name="tblPremios">
-          <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="8">
-                <Column editable="true" title="Premio" type="java.lang.String"/>
-                <Column editable="true" title="Cuantia" type="java.lang.Integer"/>
-                <Column editable="true" title="N&#xfa;mero de Premios" type="java.lang.Integer"/>
-                <Column editable="true" title="" type="java.lang.Boolean"/>
-              </Table>
-            </Property>
-            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-              <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="5" resizable="false">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-              </TableColumnModel>
-            </Property>
-            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-            </Property>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
     <Component class="javax.swing.JTextField" name="txtNombrePremio">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Premio"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombrePremioActionPerformed"/>
-      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCuantia">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cuantia"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="txtnPremio">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNPremios">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Numero Premios"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNPremiosActionPerformed"/>
-      </Events>
+    <Component class="javax.swing.JTextField" name="txtCuantiaPremio">
     </Component>
     <Component class="javax.swing.JButton" name="btnAnadirPremio">
       <Properties>
@@ -158,25 +108,52 @@
     <Component class="javax.swing.JButton" name="btnEliminarPremios">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar Seleccionados"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarPremiosActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnGuardarPremios">
+    <Component class="javax.swing.JButton" name="btnGuardarPremio">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Guardar Cambios"/>
+        <Property name="text" type="java.lang.String" value="Modificar seleccionado"/>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarPremioActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNombrePremio">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nombre"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+    <Component class="javax.swing.JLabel" name="lblCuantiaPremio">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cuantia"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblnPremios">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Numero de Premios"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="txtPremios">
+        <Component class="javax.swing.JTable" name="tablePremios">
           <Properties>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Premio (Cuantia &#x20ac;) N&#xfa;mero de Premios."/>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="3" rowCount="0">
+                <Column editable="true" title="Nombre" type="java.lang.String"/>
+                <Column editable="true" title="Cuantia" type="java.lang.Integer"/>
+                <Column editable="true" title="Numero Premios" type="java.lang.Integer"/>
+              </Table>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
