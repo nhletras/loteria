@@ -38,16 +38,15 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
             }
             
         });
-        DefaultTableModel model = (DefaultTableModel) tableAdministracion.getModel();
-        for (int i = 0; i < cga.la.size(); i++) {
-            String nombre = cga.la.get(i).getNombre();
-            String cif = cga.la.get(i).getCif();
-            String direccion = cga.la.get(i).getDireccion();
-            Object[] data = {nombre,cif,direccion};
-
-            model.addRow(data);
-
-        }
+//        DefaultTableModel model = (DefaultTableModel) tableAdministracion.getModel();
+//        for (int i = 0; i < cga.la.size(); i++) {
+//            String nombre = cga.la.get(i).getNombre();
+//            String cif = cga.la.get(i).getCif();
+//            String direccion = cga.la.get(i).getDireccion();
+//            Object[] data = {nombre,cif,direccion};
+//            model.addRow(data);
+//        }
+    cga.rellenarTablaConAdministraciones(tableAdministracion);
 
     }
 
@@ -61,8 +60,8 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
     private void initComponents() {
 
         txtNombre = new javax.swing.JTextField();
-        txtCif = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
+        txtCif = new javax.swing.JTextField();
         btnAnadirAdministracion = new javax.swing.JButton();
         btnEliminarAdministracion = new javax.swing.JButton();
         btnGuardarAdministracion = new javax.swing.JButton();
@@ -73,12 +72,7 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
+        setResizable(false);
 
         btnAnadirAdministracion.setText("Añadir");
         btnAnadirAdministracion.addActionListener(new java.awt.event.ActionListener() {
@@ -144,9 +138,9 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
                             .addComponent(jLabel3))
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCif, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCif, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,11 +162,11 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
-                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(txtCif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAnadirAdministracion, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -185,33 +179,36 @@ public class VentanaGestionAdministracion extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
     private void btnAnadirAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirAdministracionActionPerformed
         if (txtNombre.getText().isEmpty() ||
-            txtCif.getText().isEmpty()    ||
-            txtDireccion.getText().isEmpty()) 
+            txtDireccion.getText().isEmpty()    ||
+            txtCif.getText().isEmpty()) 
             JOptionPane.showMessageDialog(null, "Error. Falta algún dato.");
         else {
             cga.anadirAdministracion(txtNombre.getText(), 
-                                     txtDireccion.getText(),
                                      txtCif.getText(),
+                                     txtDireccion.getText(),
                                      tableAdministracion); 
             txtNombre.setText("");
-            txtCif.setText("");
             txtDireccion.setText("");
+            txtCif.setText("");
         }
+        btnGuardarAdministracion.setEnabled(false);
     }//GEN-LAST:event_btnAnadirAdministracionActionPerformed
 
     private void btnGuardarAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarAdministracionActionPerformed
-        cga.modificarDatos(txtNombre,txtCif,txtDireccion);
-
+        try{
+        cga.modificarDatos(txtNombre,txtCif,txtDireccion,(String)tableAdministracion.getValueAt(tableAdministracion.getSelectedRow(), 1));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Debe tener una fila seleccionada");
+        }
+        btnGuardarAdministracion.setEnabled(false);
+        cga.rellenarTablaConAdministraciones(tableAdministracion);
     }//GEN-LAST:event_btnGuardarAdministracionActionPerformed
 
     private void btnEliminarAdministracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAdministracionActionPerformed
         cga.eliminarAdministracion(tableAdministracion);
+        btnGuardarAdministracion.setEnabled(false);
     }//GEN-LAST:event_btnEliminarAdministracionActionPerformed
 
     public static void main(String args[]) {
